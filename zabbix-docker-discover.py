@@ -17,7 +17,7 @@ import subprocess
 import json
 import socket
 
-strings = subprocess.Popen("docker ps -a", shell=True, stdout=subprocess.PIPE).stdout.readlines()
+strings = subprocess.Popen("/usr/bin/sudo docker ps -a", shell=True, stdout=subprocess.PIPE).stdout.readlines()
 
 l=list()
 for i in range(1,len(strings)):

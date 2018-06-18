@@ -15,6 +15,7 @@
 
 import subprocess
 import json
+import socket
 
 strings = subprocess.Popen("docker ps -a", shell=True, stdout=subprocess.PIPE).stdout.readlines()
 
@@ -25,6 +26,7 @@ for i in range(1,len(strings)):
 	d["{#ZD_ID}"]=pstring[0]
 	d["{#ZD_IMAGE}"]=pstring[1]
 	d["{#ZD_NAME}"]=pstring[-1]
+ 	d["{#ZD_HOSTNAME}"]=socket.gethostname()
 	l.append(d)
 
 s_json=dict()
